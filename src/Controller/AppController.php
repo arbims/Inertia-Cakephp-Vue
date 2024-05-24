@@ -16,6 +16,7 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use App\Trait\InertiaCustomTrait;
 use Cake\Controller\Controller;
 use Inertia\Controller\InertiaResponseTrait;
 
@@ -29,7 +30,9 @@ use Inertia\Controller\InertiaResponseTrait;
  */
 class AppController extends Controller
 {
-    use InertiaResponseTrait;
+
+    use InertiaCustomTrait;
+
     /**
      * Initialization hook method.
      *
@@ -50,5 +53,7 @@ class AppController extends Controller
          * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
          */
         //$this->loadComponent('FormProtection');
+        $this->loadComponent('Authentication.Authentication');
     }
+
 }

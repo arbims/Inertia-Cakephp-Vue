@@ -19,6 +19,7 @@ export default defineConfig({
       }
     }
   },
+  ssr:'resources/js/ssr.js',
   server: {
     port: 3000
   }
