@@ -54,6 +54,14 @@ return function (RouteBuilder $routes): void {
             $routes->connect('/login', ['controller' => 'Auth', 'action' => 'login']);
             $routes->connect('/logout', ['controller' => 'Auth', 'action' => 'logout']);
         });
+
+        $builder->prefix('Admin', function ($routes) {
+            $routes->get('/agences', ['controller' => 'Agences', 'action' => 'index']);
+            $routes->get('/users', ['controller' => 'Users', 'action' => 'index']);
+            $routes->connect('/users/create', ['controller' => 'Users', 'action' => 'create']);
+            $routes->connect('/users/edit/{id}', ['controller'=> 'Users', 'action' => 'edit'])->setPass(['id']);
+            $routes->connect('/users/delete/{id}', ['controller'=> 'Users', 'action' => 'delete'])->setPass(['id']);
+        });
         /*
          * Here, we are connecting '/' (base path) to a controller called 'Pages',
          * its action called 'display', and we pass a param to select the view file
@@ -61,9 +69,9 @@ return function (RouteBuilder $routes): void {
          */
         $builder->get('/', ['controller' => 'Home', 'action' => 'index']);
 
-        $builder->get('/users', ['controller' => 'Users', 'action' => 'index']);
+        //$builder->get('/users', ['controller' => 'Users', 'action' => 'index']);
 
-        $builder->connect('/users/create', ['controller' => 'Users', 'action' => 'create']);
+        
 
         $builder->get('/settings', ['controller' => 'Home', 'action' => 'settings']);
 
@@ -80,7 +88,7 @@ return function (RouteBuilder $routes): void {
          * You can remove these routes once you've connected the
          * routes you want in your application.
          */
-        $builder->fallbacks();
+        //$builder->fallbacks();
     });
 
     /*

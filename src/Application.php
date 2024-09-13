@@ -18,6 +18,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Model\Table\AgencesTable;
 use App\Model\Table\UsersTable;
 use Authentication\AuthenticationService;
 use Authentication\AuthenticationServiceInterface;
@@ -117,6 +118,7 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
     public function services(ContainerInterface $container): void
     {
         $container->add(UsersTable::class, fn () => TableRegistry::getTableLocator()->get('Users'));
+        $container->add(AgencesTable::class, fn () => TableRegistry::getTableLocator()->get('Agences'));
     }
 
     /**

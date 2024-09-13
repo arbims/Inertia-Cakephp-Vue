@@ -19,6 +19,11 @@
         </NavLink>
       </li>
       <li>
+        <NavLink href="/admin/agences" :active="$page.component == 'Admin/Agences/Index'" >
+          Agences
+        </NavLink>
+      </li>
+      <li>
         <Link href="/logout" method="post" :headers="{ 'X-CSRF-Token': $page.props._csrfToken }" as="button" class="text-black hover:underline" :data="{foo: 'isbar'}">Logout</Link>
       </li>
     </ul>

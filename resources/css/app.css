@@ -1,1 +1,7 @@
-body{color: blue; text-align:center;}
+@import 'tailwindcss/base';
+
+@import 'tailwindcss/components';
+@import 'buttons';
+@import 'form';
+
+@import 'tailwindcss/utilities';
